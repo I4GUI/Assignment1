@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\AarhusUniversitetData\GUI\GIT\Assignment1\MandatoryAssignment1\DebtBook\obj\Debug\
+C:\Users\mvraa\Source\Repos\Assignment1\MandatoryAssignment1\DebtBook\obj\Debug\
 DebtBook
 none
 false
 DEBUG;TRACE
-D:\AarhusUniversitetData\GUI\GIT\Assignment1\MandatoryAssignment1\DebtBook\App.xaml
+C:\Users\mvraa\Source\Repos\Assignment1\MandatoryAssignment1\DebtBook\App.xaml
 3-233707196
 
 14-1642319616
-19-1429372646
+19746296870
 Views\AddDebtorCreditorWindow.xaml;Views\InspectDebtorCreditorWindow.xaml;Views\MainWindow.xaml;
 
-False
+True
 
