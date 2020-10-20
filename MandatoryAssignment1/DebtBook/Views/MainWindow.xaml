@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtBook"
         xmlns:viewModels="clr-namespace:DebtBook.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:interactivity="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 <Window.DataContext>
@@ -34,12 +36,15 @@
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   IsSynchronizedWithCurrentItem="True"
                   Grid.Column="1" 
-
-                  Margin="5"
-                  
+                  Margin="5">
 
 
-                  ></DataGrid>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <interactivity:InvokeCommandAction Command="{Binding InspectCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </DataGrid>
 
     </Grid>
 </Window>

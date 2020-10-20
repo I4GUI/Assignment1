@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DebtBook.Views"
+        xmlns:local="clr-namespace:DebtBook.Views" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:interactivity="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="InspectDebtorCreditorWindow" Height="450" Width="800">
     <Grid>
@@ -20,14 +22,15 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
-        <DataGrid ItemsSource="{Binding Path=Debtors}"  Grid.Row="1" 
+        <DataGrid ItemsSource="{Binding Path=InspectedDebtor.DebitEntries}"  Grid.Row="1" 
                   SelectedItem="{Binding Path=CurrentDebtor}"
                   SelectedIndex="{Binding Path=CurrentIndex}"
                   IsSynchronizedWithCurrentItem="True"
                   Grid.Column="1" 
+                  Margin="5">
 
-                  Margin="5"
-        ></DataGrid>
+
+        </DataGrid>
 
         <Button Grid.Column="2" Grid.Row="1" Margin="5">Add</Button>
 

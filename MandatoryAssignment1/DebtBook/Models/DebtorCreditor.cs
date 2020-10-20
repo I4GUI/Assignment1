@@ -23,6 +23,13 @@ namespace DebtBook.Models
         public DebtorCreditor() {}
 
 
+
+        public ObservableCollection<DebitEntry> DebitEntries
+        {
+            get =>  debit; 
+            set => SetProperty(ref debit, value);
+        }
+
         public string Name
         {
             get => name;
