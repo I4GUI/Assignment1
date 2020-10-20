@@ -19,7 +19,7 @@ namespace DebtBook.ViewModels
 
         public AddDebtorCreditorWindowViewModel() : this(new DebtorCreditor(), string.Empty, double.Parse(string.Empty))
         {
-
+            //Default constructor
         }
 
         public AddDebtorCreditorWindowViewModel(DebtorCreditor debtor, string name, double debit)
@@ -28,8 +28,6 @@ namespace DebtBook.ViewModels
             this.name = name;
             this.debit = debit;
         }
-
-<<<<<<< HEAD
 
         #region Properties
 
@@ -47,12 +45,6 @@ namespace DebtBook.ViewModels
 
 
         #endregion Properties 
-
-        public AddDebtorCreditorWindowViewModel()
-        {
-            
-        }
-    }
 
 
         #region Commands
