@@ -21,11 +21,26 @@ namespace DebtBook.Models
 
         }
 
+        #region Properties
+        
         public double Value
         {
             get => value;
             set => SetProperty(ref this.value, value);
         }
 
+        public DateTime Timestamp
+        {
+            get => timestamp;
+            set => SetProperty(ref this.timestamp, value);
+        }
+
+        public String Description
+        {
+            get => description;
+            set => SetProperty(ref this.description, value);
+        }
+
+        #endregion
     }
 }
