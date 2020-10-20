@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\InspectDebtorCreditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,9 +91,13 @@
     <Compile Include="Models\DebtorCreditor.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="ViewModels\AddDebtorCreditorWindowViewModel.cs" />
+    <Compile Include="ViewModels\InspectDebtorCreditorViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AddDebtorCreditorWindow.xaml.cs">
       <DependentUpon>AddDebtorCreditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InspectDebtorCreditorWindow.xaml.cs">
+      <DependentUpon>InspectDebtorCreditorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -123,6 +131,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

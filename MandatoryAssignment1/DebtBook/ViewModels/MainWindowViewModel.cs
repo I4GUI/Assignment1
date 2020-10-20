@@ -51,12 +51,12 @@ namespace DebtBook.ViewModels
             get { return currentDebtor; }
             set { SetProperty(ref currentDebtor, value); }
         }
-
+        
 
         #region Commands
 
         ICommand _newCommand;
-        public ICommand AddNewAgentCommand
+        public ICommand AddNewDebtorCommand
         {
             get
             {
