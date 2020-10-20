@@ -17,14 +17,6 @@ namespace DebtBook.ViewModels
         
         public InspectDebtorCreditorViewModel(DebtorCreditor debtorToInspect)
         {
-            debtorToInspect = new DebtorCreditor("Magnus",
-                new ObservableCollection<DebitEntry>()
-                {
-                    new DebitEntry("Bil", -100020, DateTime.Now),
-                    new DebitEntry("Hus", -10, DateTime.Now),
-                    new DebitEntry("Vase", -123020, DateTime.Now),
-                    new DebitEntry("Sko", 20, DateTime.Now)
-                });
             InspectedDebtor = debtorToInspect;
         }
 
@@ -37,6 +29,7 @@ namespace DebtBook.ViewModels
             get => inspectedDebtor;
             set => SetProperty(ref inspectedDebtor, value);
         }
+
 
         #endregion
 
