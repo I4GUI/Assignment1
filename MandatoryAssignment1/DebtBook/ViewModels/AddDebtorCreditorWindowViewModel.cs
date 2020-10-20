@@ -21,8 +21,10 @@ namespace DebtBook.ViewModels
             this.debit = debit;
         }
 
-
-
+        public AddDebtorCreditorWindowViewModel()
+        {
+            
+        }
     }
 
     #region Properties

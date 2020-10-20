@@ -63,7 +63,7 @@ namespace DebtBook.ViewModels
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
                     var newDebtorCreditor = new DebtorCreditor();
-                    var vm = new AddDebtorCreditorWindowViewModel();
+                    //var vm = new AddDebtorCreditorWindowViewModel();
 
                     var dlg = new AddDebtorCreditorWindow();
                     {
@@ -76,6 +76,37 @@ namespace DebtBook.ViewModels
                 }));
             }
         }
+
+        private ICommand _inspectCommand;
+
+        public ICommand InspectCommand
+        {
+            get
+            {
+                return _inspectCommand ?? (_inspectCommand = new DelegateCommand( () =>
+                {
+                    var vm = new InspectDebtorCreditorViewModel(CurrentDebtor);
+                    
+                    var dlg = new InspectDebtorCreditorWindow()
+                    {
+                        DataContext = vm,
+                        Owner = App.Current.MainWindow
+                    };
+                    if (dlg.ShowDialog() == true)
+                    {
+                        // Copy values back not included here, no cancel button.
+                    }
+
+                },
+                () => {
+                    return CurrentIndex >= 0;
+
+                }
+                ).ObservesProperty(() => CurrentIndex));
+
+            }
+        }
+
 
         #endregion
 
