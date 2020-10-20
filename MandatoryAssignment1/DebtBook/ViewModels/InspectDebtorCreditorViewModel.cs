@@ -20,7 +20,6 @@ namespace DebtBook.ViewModels
             InspectedDebtor = debtorToInspect;
         }
 
-
         #region Properties
         private DebtorCreditor inspectedDebtor;
 
@@ -32,6 +31,26 @@ namespace DebtBook.ViewModels
 
 
         #endregion
+
+        double val;
+        public double Value
+        {
+            get { return val; }
+            set
+            {
+                SetProperty(ref val, value);
+            }
+        }
+
+        string desc = "";
+        public string Desc
+        {
+            get { return desc; }
+            set
+            {
+                SetProperty(ref desc, value);
+            }
+        }
 
         #region Commands
 
@@ -60,6 +79,17 @@ namespace DebtBook.ViewModels
 
         #endregion
 
+        ICommand _AddDebt;
+        public ICommand AddDebt
+        {
+            get
+            {
+                return _AddDebt ?? (_AddDebt = new DelegateCommand(() =>
+                {
+                    InspectedDebtor.DebitEntries.Add(new DebitEntry(Desc, Value, DateTime.Now));
+                }));
+            }
+        }
 
     }
 }

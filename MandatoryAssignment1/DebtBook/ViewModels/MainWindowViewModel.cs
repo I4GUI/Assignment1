@@ -22,7 +22,11 @@ namespace DebtBook.ViewModels
         public MainWindowViewModel()
         {
             debtors = new ObservableCollection<DebtorCreditor>();
-            debtors.Add(new DebtorCreditor("Magnus", new ObservableCollection<DebitEntry>(){new DebitEntry("Bil", -100020, DateTime.Now)}));
+            debtors.Add(new DebtorCreditor("Magnus", new ObservableCollection<DebitEntry>(){
+                new DebitEntry("Bil", -100020, DateTime.Now),
+                new DebitEntry("Fisk", -100020, DateTime.Now),
+                new DebitEntry("Sko", -100020, DateTime.Now)
+            }));
             debtors.Add(new DebtorCreditor("Lars", new ObservableCollection<DebitEntry>() { new DebitEntry("Fisk", 93, DateTime.Now) }));
             debtors.Add(new DebtorCreditor("John", new ObservableCollection<DebitEntry>() { new DebitEntry("Fisk", 93, DateTime.Now) }));
         }
