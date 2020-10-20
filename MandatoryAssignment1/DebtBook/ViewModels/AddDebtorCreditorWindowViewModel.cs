@@ -31,7 +31,5 @@ namespace DebtBook.ViewModels
 
     #region Commands
 
-    public ICommand AddButton
-
     #endregion Commands
 }
