@@ -66,18 +66,23 @@ namespace DebtBook.ViewModels
             {
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
-                    var newDebtorCreditor = new DebtorCreditor();
-                    //var vm = new AddDebtorCreditorWindowViewModel();
+                    var vm = new AddDebtorCreditorWindowViewModel(Debtors);
 
-                    var dlg = new AddDebtorCreditorWindow();
+                    var dlg = new AddDebtorCreditorWindow()
                     {
-                        
+                        DataContext = vm,
+                        Owner = App.Current.MainWindow
                     };
                     if (dlg.ShowDialog() == true)
                     {
                       
                     }
-                }));
+                },
+                () => {
+                    return CurrentIndex >= 0;
+
+                }
+                ).ObservesProperty(() => CurrentIndex));
             }
         }
 

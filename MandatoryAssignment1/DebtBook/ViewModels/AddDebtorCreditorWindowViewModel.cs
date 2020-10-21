@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Prism.Mvvm;
 using DebtBook.Models;
@@ -13,36 +14,44 @@ namespace DebtBook.ViewModels
 {
     public class AddDebtorCreditorWindowViewModel : BindableBase
     {
-        private DebtorCreditor debtor;
-        private string name;
-        private double debit;
+        private ObservableCollection<DebtorCreditor> _debtors;
 
-        public AddDebtorCreditorWindowViewModel() : this(new DebtorCreditor(), string.Empty, double.Parse(string.Empty))
+        public AddDebtorCreditorWindowViewModel(ObservableCollection<DebtorCreditor> debtors)
         {
-            //Default constructor
-        }
-
-        public AddDebtorCreditorWindowViewModel(DebtorCreditor debtor, string name, double debit)
-        {
-            this.debtor = debtor;
-            this.name = name;
-            this.debit = debit;
+            _debtors = debtors;
         }
 
         #region Properties
 
-        public string newName
+        double val;
+        public double Value
         {
-            get => name;
-            set => SetProperty(ref name, value);
+            get { return val; }
+            set
+            {
+                SetProperty(ref val, value);
+            }
         }
 
-        public double newDebit
+        string name = "";
+        public string Name
         {
-            get => debit;
-            set => SetProperty(ref debit, value);
+            get { return name; }
+            set
+            {
+                SetProperty(ref name, value);
+            }
         }
 
+        string desc = "";
+        public string Desc
+        {
+            get { return desc; }
+            set
+            {
+                SetProperty(ref desc, value);
+            }
+        }
 
         #endregion Properties 
 
@@ -55,23 +64,11 @@ namespace DebtBook.ViewModels
         {
             get
             {
-                return _AddButtonCommand ??
-                       (_AddButtonCommand = new DelegateCommand(
-                               AddButtonCommand_Execute, AddButtonCommand_CanExecute)
-                           .ObservesProperty(() => newName)
-                           .ObservesProperty(() => newDebit));
+                return _AddButtonCommand ?? (_AddButtonCommand = new DelegateCommand(() =>
+                {
+                    _debtors.Add(new DebtorCreditor(Name, new ObservableCollection<DebitEntry>() { new DebitEntry(Desc, Value, DateTime.Now) }));
+                }));
             }
-            //set => throw new NotImplementedException();
-        }
-
-        private void AddButtonCommand_Execute()
-        {
-            //do nothing
-        }
-
-        private bool AddButtonCommand_CanExecute()
-        {
-            return true;
         }
 
         #endregion Commands
