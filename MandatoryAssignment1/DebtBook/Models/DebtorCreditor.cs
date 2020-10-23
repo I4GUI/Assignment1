@@ -39,6 +39,7 @@ namespace DebtBook.Models
         public double TotalDebit
         {
             get => calculateTotalDebit();
+            set => SetProperty(ref totalDebit, value);
         }
 
         private double calculateTotalDebit()

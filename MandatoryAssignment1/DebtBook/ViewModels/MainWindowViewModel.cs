@@ -24,7 +24,6 @@ namespace DebtBook.ViewModels
             debtors = new ObservableCollection<DebtorCreditor>();
             debtors.Add(new DebtorCreditor("Magnus", new ObservableCollection<DebitEntry>(){
                 new DebitEntry("Bil", -100020, DateTime.Now),
-                new DebitEntry("Fisk", -100020, DateTime.Now),
                 new DebitEntry("Sko", -100020, DateTime.Now)
             }));
             debtors.Add(new DebtorCreditor("Lars", new ObservableCollection<DebitEntry>() { new DebitEntry("Fisk", 93, DateTime.Now) }));
@@ -34,26 +33,23 @@ namespace DebtBook.ViewModels
 
         public ObservableCollection<DebtorCreditor> Debtors
         {
-            get { return debtors; }
-            set { SetProperty(ref debtors, value); }
+            get => debtors;
+            set => SetProperty(ref debtors, value);
         }
 
         int currentIndex = -1;
         public int CurrentIndex
         {
-            get { return currentIndex; }
-            set
-            {
-                SetProperty(ref currentIndex, value);
-            }
+            get => currentIndex;
+            set => SetProperty(ref currentIndex, value);
         }
 
         private DebtorCreditor currentDebtor = null;
 
         public DebtorCreditor CurrentDebtor
         {
-            get { return currentDebtor; }
-            set { SetProperty(ref currentDebtor, value); }
+            get => currentDebtor;
+            set => SetProperty(ref currentDebtor, value);
         }
         
 

@@ -35,21 +35,15 @@ namespace DebtBook.ViewModels
         double val;
         public double Value
         {
-            get { return val; }
-            set
-            {
-                SetProperty(ref val, value);
-            }
+            get => val;
+            set => SetProperty(ref val, value);
         }
 
         string desc = "";
         public string Desc
         {
-            get { return desc; }
-            set
-            {
-                SetProperty(ref desc, value);
-            }
+            get => desc;
+            set => SetProperty(ref desc, value);
         }
 
         #region Commands
