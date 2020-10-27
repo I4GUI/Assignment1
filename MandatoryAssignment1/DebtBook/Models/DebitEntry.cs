@@ -21,6 +21,10 @@ namespace DebtBook.Models
 
         }
 
+        public DebitEntry()
+        {
+        }
+
         #region Properties
         
         public double Value

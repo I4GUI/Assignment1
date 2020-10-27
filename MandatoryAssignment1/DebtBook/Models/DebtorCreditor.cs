@@ -8,6 +8,7 @@ using Prism.Mvvm;
 
 namespace DebtBook.Models
 {
+    [Serializable]
     public class DebtorCreditor : BindableBase
     {
         private string name;
