@@ -81,9 +81,9 @@ namespace DebtBook.ViewModels
                 return _AddDebt ?? (_AddDebt = new DelegateCommand(() =>
                 {
                     InspectedDebtor.DebitEntries.Add(new DebitEntry(Desc, Value, DateTime.Now));
+                    InspectedDebtor.RaiseTotalChanged();
                 }));
             }
         }
-
     }
 }
