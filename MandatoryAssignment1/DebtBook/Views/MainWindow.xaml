@@ -7,30 +7,42 @@
         xmlns:viewModels="clr-namespace:DebtBook.ViewModels"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:interactivity="http://prismlibrary.com/"
+        d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel, IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-<Window.DataContext>
-    <viewModels:MainWindowViewModel/>
-</Window.DataContext>
-
-
-
+        Title="The Debt Book" Height="450" Width="512.667">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="95"/>
+            <ColumnDefinition Width="Auto" MinWidth="252"/>
+            <ColumnDefinition Width="Auto" MinWidth="42"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="Auto" MinHeight="172"/>
+            <RowDefinition Height="Auto" MinHeight="163"/>
+            <RowDefinition Height="38"/>
         </Grid.RowDefinitions>
 
+
         <Button Grid.Column="2" Grid.Row="1" Margin="5" Command="{Binding AddNewDebtorCommand}">Add</Button>
+
+        <Label Content="File _Name: " 
+               Target="{Binding ElementName=tbxFileName}"
+               FontSize="14"
+               FontWeight="Medium"
+               VerticalAlignment="Center" Height="38" Margin="10,6,5,2" Grid.Column="1"
+        />
+        <TextBox Name="tbxFileName"
+                 FontSize="14"
+                 FontWeight="Medium"
+                 VerticalAlignment="Center"
+                 MinWidth="150" Height="22" Margin="0,6,26,18"
+        />
 
         <DataGrid ItemsSource="{Binding Path=Debtors}"  Grid.Row="1" 
                   SelectedItem="{Binding Path=CurrentDebtor}"
@@ -47,5 +59,16 @@
             </i:Interaction.Triggers>
         </DataGrid>
 
+        <DockPanel Name="dockPanelMain" Margin="0,0,5,6">
+            <Menu DockPanel.Dock="Top" Name="mainMenu" Height="19">
+                <MenuItem Header="_File" Width="67" >
+                    <MenuItem Header="_New" Command="{Binding NewFileCommand}"/>
+                    <MenuItem Header="_Open" Command="{Binding OpenFileCommand}" CommandParameter="{Binding Text, ElementName=tbxFileName}" />
+                    <MenuItem Header="_Save" Command="{Binding SaveCommand}" />
+                    <MenuItem Header="Save _As" Command="{Binding SaveAsCommand}" CommandParameter="{Binding Text, ElementName=tbxFileName}" />
+                    <MenuItem Header="E_xit" Command="{Binding CloseAppCommand}"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
     </Grid>
 </Window>
