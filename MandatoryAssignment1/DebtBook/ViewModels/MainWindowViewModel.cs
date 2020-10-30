@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -155,8 +156,8 @@ namespace DebtBook.ViewModels
         {
             var dialog = new SaveFileDialog
             {
-                Filter = "Debt book documents|*.agn|All Files|*.*",
-                DefaultExt = "agn"
+                Filter = "Debt book documents|*.dbt|All Files|*.*",
+                DefaultExt = "dbt"
             };
             if (filePath == "")
                 dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -217,7 +218,15 @@ namespace DebtBook.ViewModels
                 MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             if (res == MessageBoxResult.Yes)
             {
-                Debtors.Clear();
+                
+                int numOfdebtor = Debtors.Count;
+                if (numOfdebtor > 0)
+                {
+                    for (int i = 0; i < numOfdebtor; i++)
+                    {
+                        Debtors.Remove(Debtors[0]);
+                    }
+                }
                 Filename = "";
             }
         }
@@ -233,8 +242,8 @@ namespace DebtBook.ViewModels
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Debt Book documents|*.agn|All Files|*.*",
-                DefaultExt = "agn"
+                Filter = "Debt Book documents|*.dbt|All Files|*.*",
+                DefaultExt = "dbt"
             };
             if (filePath == "")
                 dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
