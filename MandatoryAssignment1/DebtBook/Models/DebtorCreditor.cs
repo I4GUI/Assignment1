@@ -53,6 +53,11 @@ namespace DebtBook.Models
             return sum;
         }
 
+        public void RaiseTotalChanged()
+        {
+            RaisePropertyChanged("TotalDebit");
+        }
+
     }
 
 
